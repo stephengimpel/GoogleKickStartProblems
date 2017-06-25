@@ -1,3 +1,4 @@
+import string
 #Reads each line of the file and stores it in a list
 def readFile(file):
 	namesList = list()
@@ -16,15 +17,15 @@ def findLeader(namesList):
 	currentLeader = list()
 	currentLeader.append(namesList.pop())
 	for i in namesList:
-		if(countDistinct(currentLeader[0]) < countDistinct(i)):
+		if(countDistinctLetters(currentLeader[0]) < countDistinctLetters(i)):
 			currentLeader.clear()
 			currentLeader.append(i)
-		elif(countDistinct(currentLeader[0]) == countDistinct(i)):
+		elif(countDistinctLetters(currentLeader[0]) == countDistinctLetters(i)):
 			currentLeader.append(i) 
 
 	return currentLeader
 
-
+#Davids "Blazing memory efficent C liek" function
 def countDistinctLetters(names):
     alphabet = [False for x in range(26)]
     count = 0
@@ -38,6 +39,7 @@ def countDistinctLetters(names):
                 alphabet[letterIndex] = True
     return count
 
+#Stephens "super duper readable" function
 def countDistinct(name):
 	unique = list()
 	count = 0
