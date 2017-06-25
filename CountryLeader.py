@@ -2,6 +2,7 @@ import string
 #Reads each line of the file and stores it in a list
 def readFile(file):
 	namesList = list()
+	outputList = list()
 	with open(file) as f:
 		f.readline()
 		for i in f:
@@ -10,8 +11,8 @@ def readFile(file):
 				namesList.append(f.readline().replace('\n',''))
 			leader = findLeader(namesList)
 			namesList.clear()
-			print(leader)	
-
+			outputList.append(leader[0])
+	return outputList	
 
 def findLeader(namesList):
 	currentLeader = list()
@@ -22,8 +23,15 @@ def findLeader(namesList):
 			currentLeader.append(i)
 		elif(countDistinctLetters(currentLeader[0]) == countDistinctLetters(i)):
 			currentLeader.append(i) 
-
+	currentLeader.sort()
 	return currentLeader
+
+def formatOutput(leaders):
+	f = open("CountryLeader.out", 'w')
+	for c, i in enumerate(leaders): 
+		output = "Case #{}: {}\n".format(c+1, i)
+		print(output)
+		f.write(output)
 
 #Davids "Blazing memory efficent C liek" function
 def countDistinctLetters(names):
@@ -51,7 +59,7 @@ def countDistinct(name):
 	return count
 
 def main():
-	namesList = readFile('temp.in')
-	
+	output = readFile('CountryLeaderLarge.in')
+	formatOutput(output)
 
 main()
