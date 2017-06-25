@@ -30,10 +30,10 @@ def countDistinctLetters(names):
     for i in range(size):
         if names[i] == " ":
             continue
-            letterIndex = string.ascii_uppercase.index(names[i])
-            if alphabet[letterIndex] == False:
-                    count += 1
-                    alphabet[letterIndex] = True
+        letterIndex = string.ascii_uppercase.index(names[i])
+        if alphabet[letterIndex] == False:
+                count += 1
+                alphabet[letterIndex] = True
     return count
 
 def countDistinct(name):
