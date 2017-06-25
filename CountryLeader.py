@@ -1,3 +1,5 @@
+import string
+
 #Reads each line of the file and stores it in a list
 def readFile(file):
 	namesList = list()
@@ -22,6 +24,16 @@ def findLeader(namesList):
 	return currentLeader
 
 
+def countDistinctLetters(names):
+	alaphabet[26] = 0
+	count = 0
+	size = len(names)
+	for i in range(size):
+		letterIndex = alphabet[string.lowercase.index(names[i])]
+		if letterIndex == 0:
+			count += 1
+			letterIndex = 1
+	return count
 
 def main():
 	readFile('temp.in')
