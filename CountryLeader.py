@@ -25,17 +25,17 @@ def findLeader(namesList):
 
 
 def countDistinctLetters(names):
-	alphabet[26];
-	for i in range(26):
-		alphabet[i] = False
-	count = 0
-	size = len(names)
-	for i in range(size):
-		letterIndex = alphabet[string.ascii_lowercase.index(names[i])]
-		if letterIndex == False:
-			count += 1
-			letterIndex = True
-	return count
+    alphabet = [False for x in range(26)]
+    count = 0
+    size = len(names)
+    for i in range(size):
+        if names[i] == " ":
+            continue
+            letterIndex = string.ascii_uppercase.index(names[i])
+            if alphabet[letterIndex] == False:
+                    count += 1
+                    alphabet[letterIndex] = True
+    return count
 
 def main():
 	readFile('temp.in')
