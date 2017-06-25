@@ -18,7 +18,7 @@ def countDistinctLetters(names):
 	count = 0
 	size = len(names)
 	for i in range(size):
-		letterIndex = alphabet[string.lowercase.index(names[i])]
+		letterIndex = alphabet[string.ascii_lowercase.index(names[i])]
 		if letterIndex == 0:
 			count += 1
 			letterIndex = 1
