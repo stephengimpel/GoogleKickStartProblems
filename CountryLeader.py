@@ -1,5 +1,4 @@
 import string
-
 #Reads each line of the file and stores it in a list
 def readFile(file):
 	namesList = list()
@@ -15,16 +14,17 @@ def findLeader(namesList):
 	currentLeader = list()
 	currentLeader.append(namesList.pop())
 	for i in namesList:
-		if(len(currentLeader[0]) < len(i)):
+		if(countDistinctLetters(currentLeader[0]) < countDistinctLetters(i)):
 			currentLeader.clear()
 			currentLeader.append(i)
-		elif(len(currentLeader[0]) == len(i)):
+		elif(countDistinctLetters(currentLeader[0]) == countDistinctLetters(i)):
 			currentLeader.append(i) 
 
 	return currentLeader
 
 
 def countDistinctLetters(names):
+<<<<<<< HEAD
     alphabet = [False for x in range(26)]
     count = 0
     size = len(names)
@@ -36,8 +36,35 @@ def countDistinctLetters(names):
                     count += 1
                     alphabet[letterIndex] = True
     return count
+=======
+	alphabet = list()
+	for i in range(26):
+		alphabet.append(False)
+	count = 0
+	for i in names:
+		letterIndex = alphabet[string.ascii_uppercase.index(i)]
+		if letterIndex == False:
+			count += 1
+			letterIndex = True
+	return count
+>>>>>>> 770d636033cc5b695bd6ef2f7a5916f0351c0dbc
+
+
+def countDistinct(name):
+	unique = list()
+	count = 0
+	for i in name:
+		if(not i in unique):
+			unique.append(i)
+			count += 1
+
+	print(count)
+	return count
 
 def main():
-	readFile('temp.in')
+	# readFile('temp.in')
+	countDistinct('google')
+	#c = countDistinctLetters('google')
+	#print(c)
 
 main()
