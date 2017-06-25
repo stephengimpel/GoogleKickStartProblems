@@ -24,19 +24,33 @@ def findLeader(namesList):
 
 
 def countDistinctLetters(names):
-	alphabet[26];
+	alphabet = list()
 	for i in range(26):
-		alphabet[i] = False
+		alphabet.append(False)
 	count = 0
-	size = len(names)
-	for i in range(size):
-		letterIndex = alphabet[string.ascii_lowercase.index(names[i])]
+	for i in names:
+		letterIndex = alphabet[string.ascii_uppercase.index(i)]
 		if letterIndex == False:
 			count += 1
 			letterIndex = True
 	return count
 
+
+def countDistinct(name):
+	unique = list()
+	count = 0
+	for i in name:
+		if(not i in unique):
+			unique.append(i)
+			count += 1
+
+	print(count)
+	return count
+
 def main():
-	readFile('temp.in')
+	# readFile('temp.in')
+	countDistinct('google')
+	#c = countDistinctLetters('google')
+	#print(c)
 
 main()
