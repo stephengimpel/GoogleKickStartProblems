@@ -1,3 +1,5 @@
+import string
+
 #Reads each line of the file and stores it in a list
 def readFile(file):
 	namesList = list()
