@@ -1,17 +1,26 @@
-import string
-
 #Reads each line of the file and stores it in a list
 def readFile(file):
-	fullList = list()
+	namesList = list()
 	with open(file) as f:
 		f.readline()
 		numberOfNames = int(f.readline())
 		for i in range(numberOfNames):
-			fullList.append(i)
-	return fullList
+			namesList.append(f.readline().replace('\n',''))
+		leader = findLeader(namesList)
+		print(leader)
 
 def findLeader(namesList):
-	
+	currentLeader = list()
+	currentLeader.append(namesList.pop())
+	for i in namesList:
+		if(len(currentLeader[0]) < len(i)):
+			currentLeader.clear()
+			currentLeader.append(i)
+		elif(len(currentLeader[0]) == len(i)):
+			currentLeader.append(i) 
+
+	return currentLeader
+
 
 def countDistinctLetters(names):
 	alaphabet[26] = 0
@@ -25,6 +34,6 @@ def countDistinctLetters(names):
 	return count
 
 def main():
-	print("stub")
+	readFile('temp.in')
 
 main()
